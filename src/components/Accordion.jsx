@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Plus from "../assets/icon/Plus";
 import Minus from "../assets/icon/Minus";
 
@@ -30,20 +30,26 @@ function Accordion(props) {
       >
         <div onClick={AccordionFunc} className="overflow-hidden ">
           <p
-            className={`font-normal text-lg transition-all ease-out  delay-300  ${accordionOpen ? "p-10 mt-16" : "p-0 mt-0"} overflow-hidden `}
+            className={`font-normal text-lg transition-all ease-out  delay-300  ${
+              accordionOpen ? "p-10 mt-16" : "p-0 mt-0"
+            } overflow-hidden `}
           >
             {props.text1}
           </p>
         </div>
         <div
           onClick={AccordionFunc}
-          className={`flex justify-between cursor-pointer items-center overflow-hidden transition-all ease-out  delay-300 ${accordionOpen ? "p-10 mt-16 " : "p-0 mt-0"}`}
+          className={`flex justify-between cursor-pointer items-center overflow-hidden transition-all ease-out  delay-300 ${
+            accordionOpen ? "p-10 mt-16 " : "p-0 mt-0"
+          }`}
         >
           <p className="font-medium text-lg p-8 bg-[#F7F7F8] rounded-lg border-2">
             {props.text2}
           </p>
           <span
-            className={`fill-black transition-all ease-out  delay-300 ${accordionOpen ? "p-12" : "p-0 "}  bg-white rounded-[50%]`}
+            className={`fill-black transition-all ease-out  delay-300 ${
+              accordionOpen ? "p-12" : "p-0 "
+            }  bg-white rounded-[50%]`}
           >
             <Plus />
           </span>

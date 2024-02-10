@@ -1,5 +1,3 @@
-import React from "react";
-
 import Icon from "../assets/icon/Icon";
 import Email from "../assets/icon/Email";
 import Phone from "../assets/icon/Phone";
@@ -9,7 +7,7 @@ import Facebook from "../assets/icon/Facebook";
 import Twitter from "../assets/icon/Twitter";
 import Link from "../assets/icon/Link";
 
-function Footer(props) {
+function Footer() {
   return (
     <footer className="mt-[100px] pt-12 md:pt-24 bg-white py-16 md:py-24 px-4 md:px-8 lg:px-24">
       <div className="container flex flex-col md:flex-row justify-between items-start md:items-start md:gap-8">

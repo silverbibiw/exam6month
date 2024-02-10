@@ -1,9 +1,8 @@
-import React from "react";
 import RightIcon from "../assets/icon/RightIcon";
 import Icon from "../assets/icon/Icon";
 import { NavLink } from "react-router-dom";
 
-function Header(props) {
+function Header() {
   return (
     <header className="container">
       <div className=" sticky flex justify-center items-center text-center rounded bg-[#FF9500] py-[14px]">
