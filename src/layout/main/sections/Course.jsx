@@ -1,5 +1,3 @@
-import React from "react";
-
 import Img1 from "../../../assets/img/image1.png";
 import Img2 from "../../../assets/img/image2.png";
 import Img3 from "../../../assets/img/image3.png";
@@ -64,7 +62,7 @@ const courseList = [
   },
 ];
 
-function Course(props) {
+function Course() {
   return (
     <section className="container mt-[109px]">
       <div className="flex justify-between items-end">
@@ -85,7 +83,10 @@ function Course(props) {
 
       <div className="grid grid-cols-2 gap-8 mt-[80px]">
         {courseList.map((item) => (
-          <div className="bg-white p-[50px] rounded-lg transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-500">
+          <div
+            key={item.id}
+            className="bg-white p-[50px] rounded-lg transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-500"
+          >
             <img className="w-full" src={item.img} alt="img" />
             <div className="flex justify-between items-center mt-[30px]">
               <div className="flex justify-between items-center">

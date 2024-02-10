@@ -1,4 +1,3 @@
-import React from "react";
 import NextIcon from "../../../assets/icon/NextIcon";
 
 const cardList = [
@@ -40,7 +39,7 @@ const cardList = [
   },
 ];
 
-function Benefits(props) {
+function Benefits() {
   return (
     <section className="container">
       <div className="flex justify-between items-end">
@@ -61,7 +60,10 @@ function Benefits(props) {
 
       <div className="grid grid-cols-3 gap-8 mt-[80px]">
         {cardList?.map((item) => (
-          <div className="p-[40px] rounded-lg transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-slate-50 duration-300">
+          <div
+            key={item.id}
+            className="p-[40px] rounded-lg transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-slate-50 duration-300"
+          >
             <h2 className="text-end text-[50px] font-[700] leading-[24px]">
               {item.number}
             </h2>

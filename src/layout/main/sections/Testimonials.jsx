@@ -1,5 +1,3 @@
-import React from "react";
-
 import Photo1 from "../../../assets/img/photo1.png";
 import Photo2 from "../../../assets/img/photo2.png";
 import Photo3 from "../../../assets/img/photo3.png";
@@ -32,7 +30,7 @@ const testiList = [
   },
 ];
 
-function Testimonials(props) {
+function Testimonials() {
   return (
     <section className="container mt-[109px]">
       <div className="flex justify-between items-end">
@@ -55,7 +53,10 @@ function Testimonials(props) {
 
       <div className="grid grid-cols-2 gap-8 mt-[80px]">
         {testiList.map((item) => (
-          <div className="bg-white rounded-lg transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-500">
+          <div
+            key={item.id}
+            className="bg-white rounded-lg transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-500"
+          >
             <div className="p-[40px]">
               <p className="text-lg font-normal leading-[150%]">{item.text}</p>
             </div>
