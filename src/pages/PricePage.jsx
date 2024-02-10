@@ -1,5 +1,3 @@
-import React from "react";
-
-function PricePage(props) {}
+function PricePage() {}
 
 export default PricePage;
