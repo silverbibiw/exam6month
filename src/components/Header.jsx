@@ -1,9 +1,22 @@
-import React from "react";
 import RightIcon from "../assets/icon/RightIcon";
 import Icon from "../assets/icon/Icon";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useCallback, useEffect } from "react";
 
-function Header(props) {
+function Header() {
+  const navigate = useNavigate();
+  const tokenData = localStorage.getItem("token");
+  const userDataStorage = localStorage.getItem("userData");
+  const userData = JSON.parse(userDataStorage);
+  const logOut = useCallback(() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userData");
+    navigate("/login");
+  }, [navigate]);
+
+  useEffect(() => {
+    if (!tokenData) navigate("/login");
+  }, [tokenData, navigate]);
   return (
     <header className="container">
       <div className=" sticky flex justify-center items-center text-center rounded bg-[#FF9500] py-[14px]">
@@ -52,12 +65,26 @@ function Header(props) {
             </div>
           </nav>
           <div>
-            <button className="items-center text-center ml-[20px] text-lg font-normal border-none">
-              <NavLink to="signup">Sign In</NavLink>
-            </button>
-            <button className="items-center text-center ml-[20px] text-lg font-normal border-none">
-              <NavLink to="login">Login</NavLink>
-            </button>
+            {!tokenData ? (
+              <>
+                <button className="items-center text-center ml-[20px] text-lg font-normal border-none">
+                  <NavLink to="signup">Sign In</NavLink>
+                </button>
+                <button className="items-center text-center ml-[20px] text-lg font-normal border-none">
+                  <NavLink to="login">Login</NavLink>
+                </button>
+              </>
+            ) : (
+              <div className="flex items-center">
+                <h1>{userData?.email ?? "UserName"}</h1>
+                <button
+                  className="ml-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+                  onClick={logOut}
+                >
+                  Log out
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

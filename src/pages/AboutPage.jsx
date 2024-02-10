@@ -1,5 +1,3 @@
-import React from "react";
-
-function AboutPage(props) {}
+function AboutPage() {}
 
 export default AboutPage;

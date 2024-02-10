@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import Photo from "../assets/img/photo2.png";
 import Prev from "../assets/icon/Prev";
 import Next from "../assets/icon/Next";
 import Google from "../assets/icon/Google";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignPage = () => {
   const [email, setEmail] = useState("");
@@ -14,22 +14,23 @@ const SignPage = () => {
   const [passwordError, setPasswordError] = useState("");
   const [remMe, setRemMe] = useState(false);
 
-  const RegExEmail = /^^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  const RegExEmail = /^^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
   const RegExPassword = /^(?=.*[A-Z0-9])(?=.*[0-9]).{8,12}$/;
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (RegExEmail.test(email) && RegExPassword.test(password)) {
       localStorage.setItem("userData", JSON.stringify({ email, password }));
-      window.location.href = "/";
+      localStorage.setItem("token", email);
+      navigate("/course");
     } else {
       if (!RegExEmail.test(email)) {
         setEmailError("Email Error");
       }
       if (!RegExPassword.test(password)) {
         setPasswordError(
-          "Password must be more than 8 characters, number and uppercase letters",
+          "Password must be more than 8 characters, number and uppercase letters"
         );
       }
     }
@@ -141,10 +142,10 @@ const SignPage = () => {
             >
               Sign Up
             </button>
-            <div class="relative flex py-5 items-center my-8">
-              <div class="flex-grow border-t border-gray-200"></div>
-              <span class="text-lg font-normal mx-4 text-gray-400">OR</span>
-              <div class="flex-grow border-t border-gray-200"></div>
+            <div className="relative flex py-5 items-center my-8">
+              <div className="flex-grow border-t border-gray-200"></div>
+              <span className="text-lg font-normal mx-4 text-gray-400">OR</span>
+              <div className="flex-grow border-t border-gray-200"></div>
             </div>
             <div className="w-full p-6 rounded-lg border-slate-200 border-2 bg-[#FCFCFD] flex items-center justify-center">
               <span>

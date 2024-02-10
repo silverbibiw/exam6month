@@ -19,11 +19,8 @@ import LoginPage from "./pages/LoginPage.jsx";
 import SignPage from "./pages/SignPage.jsx";
 
 //inner pages
-import WebDesignPage from "./pages/courses/WebDesignPage.jsx";
-import UxUiPage from "./pages/courses/UxUiPage.jsx";
-import Mobile from "./pages/courses/Mobile.jsx";
-import GraphicDesign from "./pages/courses/GraphicDesign.jsx";
-import FrontEnd from "./pages/courses/FrontEnd.jsx";
+
+import CourseDetails from "./pages/courses/CourseDetails.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,17 +32,13 @@ const router = createBrowserRouter(
       <Route path="login" element={<LoginPage />} />
       <Route path="signup" element={<SignPage />} />
       <Route path="course" element={<CoursePage />} />
-      <Route path="course/webdesign" element={<WebDesignPage />} />
-      <Route path="course/ux" element={<UxUiPage />} />
-      <Route path="course/mobile" element={<Mobile />} />
-      <Route path="course/graphic" element={<GraphicDesign />} />
-      <Route path="course/front" element={<FrontEnd />} />
-    </Route>,
-  ),
+      <Route path="course/:id" element={<CourseDetails />} />
+    </Route>
+  )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
